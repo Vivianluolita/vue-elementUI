@@ -5,35 +5,35 @@ import Vue from 'vue'
 import VueRouter from 'vue-router';
 import App from './App'
 import ElementUI from 'element-ui';
-import goods from './components/goods/goods';
-import ratings from './components/ratings/ratings';
+import Index from './components/index/index';
+import Table from './components/table/table';
+import Form from './components/form/form';
+import Ue from './components/editor/ue';
 Vue.config.productionTip = false
 Vue.use(VueRouter);// 安装路由功能,并import
+Vue.use(VueRouter);
 /* eslint-disable no-new */
-/*去掉el，重新挂载 */
-// new Vue({1
-//   el: '#app',
-//   router,
-//   components: { App },
-//   template: '<App/>'
-// })
-
 /*vue-router如何定义嵌套路由 */
-let routes = {
-  path:'/',
-  name:'index',
-  components:App,
-  children:[
-    {path:'/goods',components:goods},
-    {path:'/ratings',components:ratings},
-  ]
-};
+let routes = [
+  {
+    path: '/',
+    component: App,
+    children: [
+      {path: '/index', component: Index, name: 'index', class: 'fa-line-chart'},
+      {path: '/table', component: Table, name: 'table', class: 'fa-table'},
+      {path: '/form', component: Form, name: 'form', class: 'fa-newspaper-o'},
+      {path: '/editor', component: Ue, name: 'editor', class: 'fa-plug'}
+    ]
+  }
+];
 /* router 实例化*/
 let router = new VueRouter({
-  'linkActiveClass':'active',
+  // 'mode': 'history', 去掉URL的#号，需要配置服务器http://router.vuejs.org/zh-cn/essentials/history-mode.html
+  'linkActiveClass': 'active',
   routes
 });
+/*去掉el，重新挂载 */
 let app = new Vue({
   router
-}).$mount('#app')
+}).$mount('#app');
 export default app;

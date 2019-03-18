@@ -1,4 +1,4 @@
-###项目搭建
+### 项目搭建
 1. 先安装webpack vue 
 ```
 vue init webpack Vue-Project
@@ -44,5 +44,3 @@ npm install --save element-ui
 main.js  
 ```
 
-7. `git remote add origin git@github.com:Vivianluolita/vue-elementUI.git
-git push -u origin master`
