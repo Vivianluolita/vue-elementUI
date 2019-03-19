@@ -1,7 +1,16 @@
 <template>
   <div>
     <v-header :user="user"></v-header>  
-    <div class="tab border-1px">
+    <el-row class="container">
+      <el-col :span="4" class="menu">
+        <el-menu default-active="/form" :router="true">
+          <el-menu-item index="/form">form</el-menu-item>
+          <el-menu-item index="/table">table</el-menu-item>
+        </el-menu>
+      </el-col>
+      <el-cow :span="20"></el-cow>
+    </el-row>
+    <!-- <div class="tab border-1px">
       <div class="tab-item">
         <router-link to="/goods">
           商品
@@ -17,7 +26,7 @@
         </router-link>
       </div>
       </div>
-    </div>
+    </div> -->
     <keep-alive>
       <router-view></router-view>
     </keep-alive>
@@ -35,18 +44,27 @@ export default {
   },
   components:{
     'v-header':header
-  }
+  },
+  created(){
+    this.$http.get('/api/user').then((response)=>{
+      response = response.body;
+      if(response.errno = ERR_OK){
+        this.user = response.data;
+      }
+    });  
+    },
 
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+.menu, .el-menu {
+  z-index: 11;
+    height: 100%;
+  }
+
+  .container {
+    padding-top: 80px;
+    height: 100%;
+  }
 </style>
