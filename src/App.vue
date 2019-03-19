@@ -36,6 +36,7 @@
 
 <script>
 import header from './components/header/header.vue';
+//const ERR_OK = 0;
 export default {
   data () {
     return {
@@ -46,12 +47,13 @@ export default {
     'v-header':header
   },
   created(){
-    this.$http.get('/api/user').then((response)=>{
-      response = response.body;
-      if(response.errno = ERR_OK){
-        this.user = response.data;
-      }
-    });  
+    //为了github pages，原接口改为本地数据
+    // this.$http.get('/api/user').then((response)=>{
+    //   response = response.body;
+    //   if(response.errno = ERR_OK){
+    //     this.user = response.data;
+    //   }
+    // });  
     },
 
 }
