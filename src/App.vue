@@ -50,25 +50,45 @@ export default {
     var appData = require('../data.json');
     this.user = appData.user;
     //为了github pages，原接口改为本地数据
-    // this.$http.get('/api/user').then((response)=>{
-    //   response = response.body;
-    //   if(response.errno = ERR_OK){
-    //     this.user = response.data;
-    //   }
-    // });  
-    },
+    this.$http.get('/api/user2').then((response)=>{
+      response = response.body;
+      if(response.errno = ERR_OK){
+        this.user = response.data;
+      }
+    });  
+    this.$http.get('/api/user3').then((response) => {
+      console.log(response);
+      console.log(response.ok);
+      response = response.body;
+      if(response.errno === ERR_OK){
+        this.user = response.data;
+      }
+    })
+  },
 
 }
 </script>
 
 <style>
-.menu, .el-menu {
-  z-index: 11;
+html, body,#app{
     height: 100%;
   }
-
+  body{
+    font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+  }
+  .menu, .el-menu {
+    height: 100%;
+  }
   .container {
     padding-top: 80px;
     height: 100%;
+  }
+  .content{
+    padding: 20px;
+  }
+  /* fa图标右侧需要流出空白 elementUI图标已自带样式 */
+  i.fa{
+    vertical-align: baseline;
+    margin-right: 10px;
   }
 </style>
