@@ -9,6 +9,8 @@ import Index from './components/index/index';
 import Table from './components/table/table';
 import Form from './components/form/form';
 import Ue from './components/editor/ue';
+import Mock from './mock/mock'
+Mock.haha();
 Vue.config.productionTip = false
 Vue.use(VueRouter);// 安装路由功能,并import
 Vue.use(VueRouter);
@@ -19,7 +21,7 @@ let routes = [
     path: '/',
     component: App,
     children: [
-      {path: '/index', component: Index, name: 'index', class: 'fa-line-chart'},
+      {path: '', component: Index, name: 'index', class: 'fa-line-chart'},
       {path: '/table', component: Table, name: 'table', class: 'fa-table'},
       {path: '/form', component: Form, name: 'form', class: 'fa-newspaper-o'},
       {path: '/editor', component: Ue, name: 'editor', class: 'fa-plug'}
