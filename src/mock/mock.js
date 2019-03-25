@@ -16,10 +16,15 @@ export default {
       // 'age|1-100': 100,
       // 'color': '@color'
     });
-    Mock.mock('/api/user3', {
-      "name": "22尼古拉斯赵四",
-      "area": "华东区",
-      "identity": "超级管理员"
+    Mock.mock('/api/getTable', {
+      "code": "000",
+      "datas|5-25": [
+        {
+          "date": '@date("yyyy-MM-dd")',
+          "name": "@cname",
+          "address": "@csentence"
+        }
+      ]
     });
   }
 };

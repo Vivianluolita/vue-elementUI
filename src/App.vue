@@ -1,35 +1,30 @@
 <template>
-  <div>
+  <div style="height:100%">
     <v-header :user="user"></v-header>  
     <el-row class="container">
       <el-col :span="4" class="menu">
-        <el-menu default-active="/form" :router="true">
-          <el-menu-item index="/form">form</el-menu-item>
-          <el-menu-item index="/table">table</el-menu-item>
+        <el-menu default-active="/table" :router="true">
+          <el-menu-item index="/table"><i class="fa fa-table"></i>Table</el-menu-item>
+          <el-menu-item index="/form"><i class="fa fa-newspaper-o"></i>Form</el-menu-item>
+          <el-submenu index = "1">
+            <template slot="title">
+              <i class="el-icon-menu"></i>第三方
+            </template>
+            <el-menu-item index="1-1"><i class="fa fa-line-chart"></i>Echarts</el-menu-item>
+            <el-menu-item index="1-2"><i class="fa fa-plug"></i>其他</el-menu-item>
+          </el-submenu>
         </el-menu>
       </el-col>
-      <el-cow :span="20"></el-cow>
+      <el-cow :span="20">
+        <div>
+          <div class="content">
+            <keep-alive>
+              <router-view></router-view>
+            </keep-alive>
+          </div>
+        </div>
+      </el-cow>
     </el-row>
-    <!-- <div class="tab border-1px">
-      <div class="tab-item">
-        <router-link to="/goods">
-          商品
-        </router-link>
-        <div class="tab-item">
-        <router-link to="/ratings">
-          评论
-        </router-link>
-      </div>
-      <div class="tab-item">
-        <router-link to="/seller">
-          商家
-        </router-link>
-      </div>
-      </div>
-    </div> -->
-    <keep-alive>
-      <router-view></router-view>
-    </keep-alive>
   </div>
 
 </template>
