@@ -43,7 +43,7 @@ module.exports = {
     // Paths 修改dist 配置
     assetsRoot: path.resolve(__dirname, './dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: '',
 
     /**
      * Source Maps
