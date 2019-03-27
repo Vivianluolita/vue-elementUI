@@ -42,8 +42,6 @@ export default {
     'v-header':header
   },
   created(){
-    var appData = require('../data.json');
-    this.user = appData.user;
     //为了github pages，原接口改为本地数据
     this.$http.get('/api/user').then((response)=>{
       response = response.body;

@@ -12,9 +12,6 @@ export default {
         "area": "@province(true)",
         "identity": "超级管理员"
       }
-      // 'name': '@name',
-      // 'age|1-100': 100,
-      // 'color': '@color'
     });
     Mock.mock('/api/getTable', {
       "code": "000",

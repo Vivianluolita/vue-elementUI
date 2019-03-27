@@ -44,3 +44,5 @@ npm install --save element-ui
 main.js  
 ```
 
+7. `git push vue-element master`
+
